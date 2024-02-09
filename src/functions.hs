@@ -10,15 +10,6 @@ listReverse :: [Int] -> [Int]
 listReverse [] = []
 listReverse (a:b) = listReverse b ++ [a]
 
-
-medianLength :: [String] -> Float
-medianLength x 
-	| (length x == 0) = 0.0
-        | odd (length x) = fromIntegral( length (newList !! (length x `div` 2)))
-        | even (length x) = fromIntegral( length (newList !! (length x `div` 2)) + length (newList !! ((length x `div` 2) - 1))) / 2 
-		where
-			newList = sortLen x
-
 sortLen :: [String] -> [String]
 sortLen x = sortBy cmp x where 
 	cmp a b | n < m = LT
@@ -27,6 +18,11 @@ sortLen x = sortBy cmp x where
 	  where n = length a
 	        m = length b
 
-
-
+medianLength :: [String] -> Float
+medianLength x 
+	| (length x == 0) = 0.0
+        | odd (length x) = fromIntegral( length (newList !! (length x `div` 2)))
+        | even (length x) = fromIntegral( length (newList !! (length x `div` 2)) + length (newList !! ((length x `div` 2) - 1))) / 2 
+		where
+			newList = sortLen x
 
